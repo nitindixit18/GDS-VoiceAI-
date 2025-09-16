@@ -143,4 +143,3 @@ function GDSVoiceApp() {
                     ? 'bg-purple-600 text-white shadow-lg transform -translate-y-1' 
                     : 'bg-white text-purple-600 border-2 border-purple-600 hover:bg-purple-50'
                 }`}
-              >
