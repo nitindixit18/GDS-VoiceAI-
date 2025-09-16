@@ -1,0 +1,30 @@
+services:
+  # Frontend - Voice UI Kit (React)
+  - type: web
+    name: voice-ui-frontend
+    runtime: node
+    env: node
+    buildCommand: cd frontend && npm install && npm run build
+    startCommand: cd frontend && npm start
+    plan: free
+    envVars:
+      - key: REACT_APP_PIPECAT_API_URL
+        value: https://gds-voice-backend.onrender.com
+      - key: NODE_ENV
+        value: production
+
+  # Backend - Pipecat Platform (Python)  
+  - type: web
+    name: gds-voice-backend
+    runtime: python3
+    env: python3
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    plan: free
+    envVars:
+      - key: SARVAM_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: PORT
+        value: 10000
